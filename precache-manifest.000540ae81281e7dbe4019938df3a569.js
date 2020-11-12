@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/StarWarsAPI/static/js/runtime~main.6bd4563e.js"
   },
   {
-    "revision": "9a62f3a48af11f3d5e95",
-    "url": "/StarWarsAPI/static/js/main.fba74623.chunk.js"
+    "revision": "4773e468ee3bc5a4f35d",
+    "url": "/StarWarsAPI/static/js/main.451fe065.chunk.js"
   },
   {
     "revision": "bd9dc85eefa1d186a234",
     "url": "/StarWarsAPI/static/js/2.590933e2.chunk.js"
   },
   {
-    "revision": "9a62f3a48af11f3d5e95",
+    "revision": "4773e468ee3bc5a4f35d",
     "url": "/StarWarsAPI/static/css/main.8d68cb0d.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/StarWarsAPI/static/css/2.8a16639f.chunk.css"
   },
   {
-    "revision": "d4f3e6187efb970884e6b2a1e4afdf37",
+    "revision": "4b881cce32503d83ff9b54932dba6cc4",
     "url": "/StarWarsAPI/index.html"
   }
 ];
