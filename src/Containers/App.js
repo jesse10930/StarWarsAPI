@@ -13,7 +13,7 @@ class App extends Component {
 	}
 
 componentDidMount() {
-	fetch('https://swapi.dev/api/')
+	fetch('https://swapi.py4e.com/api/')
 		.then(resp => resp.json())
 		.then(data => this.setState({ urls: data }))
 }
