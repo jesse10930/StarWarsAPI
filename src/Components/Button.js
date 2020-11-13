@@ -2,6 +2,7 @@ import React from 'react';
 
 const Button = ({ buttonClick }) => {
 	return (
+		// return buttons for each of the follow swapi categories
 		<div>
 			<button className='pa3 ma2' id='films' onClick={ buttonClick }>
 				Films

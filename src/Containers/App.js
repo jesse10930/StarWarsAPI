@@ -6,43 +6,53 @@ import Scroll from '../Components/Scroll';
 class App extends Component {
 	constructor() {
 		super()
+		// initialize state
 		this.state = {
 			info: [],
 			urls: []
 		}
 	}
 
-componentDidMount() {
-	fetch('https://swapi.py4e.com/api/')
-		.then(resp => resp.json())
-		.then(data => this.setState({ urls: data }))
-}
-
-onButtonClick = (event) => {
-	let category = event.target.id;
-	this.setState({ info: [] });
-	let grabAll = (input) => {
-		let grabNext = (url) => {
-			return new Promise((resolve, reject) => {
-				fetch(url)
-					.then(resp => resp.json())
-					.then(data => {
-						this.setState({ info: this.state.info.concat(data.results)});
-						if(data.next === null) {
-							resolve();
-						}
-						else {
-							grabNext(data.next).then(resolve2 => {
-								resolve(resolve2);
-							});
-						}
-					})
+	// on initial mount, get data from swapi, store in urls state
+	componentDidMount() {
+		fetch('https://swapi.py4e.com/api/')
+			.then(resp => resp.json())
+			.then(data => {
+				this.setState({ urls: data });
 			})
-		}
-		grabNext(input);
 	}
-	grabAll(this.state.urls[category]);
-}
+
+	// when button clicked, clear info state, created and run grabAll function with category of button as input
+	onButtonClick = (event) => {
+		let category = event.target.id;
+		this.setState({ info: [] });
+
+		// run grabAll on url of category clicked, create and run grabNext function with same url
+		let grabAll = (input) => {
+			let grabNext = (url) => {
+				return new Promise((resolve, reject) => {
+					// get data from catgory url, set info state with results
+					fetch(url)
+						.then(console.log(url))
+						.then(resp => resp.json())
+						.then(data => {
+							this.setState({ info: this.state.info.concat(data.results)});
+							// if last result in category data, resolve promise, else run grabNext on next result in category
+							if(data.next === null) {
+								resolve();
+							}
+							else {
+								grabNext(data.next).then(resolve2 => {
+									resolve(resolve2);
+								});
+							}
+						})
+				})
+			}
+			grabNext(input);
+		}
+		grabAll(this.state.urls[category]);
+	}
 
 render() {
 		return (

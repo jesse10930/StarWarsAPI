@@ -4,6 +4,7 @@ import Card from './Card';
 const CardList = ({ info }) => {
 	return (
 		<div>
+			{/* map through category info array, return card component for each entry  */}
 			{info.map((data, i) => {
 					const categories = Object.entries(data);
 					return(
